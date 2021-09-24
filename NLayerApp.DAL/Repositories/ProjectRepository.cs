@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NLayerApp.DAL.EF;
 using NLayerApp.DAL.Entities;
+using NLayerApp.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace NLayerApp.DAL.Repositories
 {
-    class ProjectRepository
+    class ProjectRepository :IRepository<Project>
     {
         private SqlContext db;
         public ProjectRepository(SqlContext sqlContext)

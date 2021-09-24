@@ -6,9 +6,9 @@ namespace NLayerApp.DAL.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {
-        IRepository<Project> Managers { get; }
+       
         IRepository<Project> Projects { get; }
-        IRepository<PmTask> PmTasks { get; }
+        IRepository<Task> Tasks { get; }
         IRepository<Team> Teams { get; }
         IRepository<User> Users { get; }
 

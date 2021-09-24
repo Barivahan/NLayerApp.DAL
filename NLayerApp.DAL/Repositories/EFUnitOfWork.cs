@@ -2,21 +2,18 @@
 using NLayerApp.DAL.Entities;
 using NLayerApp.DAL.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NLayerApp.DAL.Repositories
 {
     class EFUnitOfWork : IUnitOfWork
     {
         private SqlContext db;
-        private ManagerRepository managerRepository;
-        private Project projectRepository;
-        private Task taskRepository;
-        private Team teamRepository;
-        private User userRepository;
+
+
+        private ProjectRepository projectRepository;
+        private TaskRepository taskRepository;
+        private TeamRepository teamRepository;
+        private UserRepository userRepository;
 
 
         public EFUnitOfWork()
@@ -24,25 +21,46 @@ namespace NLayerApp.DAL.Repositories
             this.db = new SqlContext();
         }
 
-        public IRepository<Project> Managers
+        public IRepository<Project> Projects
         {
             get
             {
-                if (managerRepository == null)
+                if (projectRepository == null)
 
-                    managerRepository = new ManagerRepository(db);
-
-                return managerRepository;
+                    projectRepository = new ProjectRepository(db);
+                return projectRepository;
             }
         }
 
-        public IRepository<Project> Projects => throw new NotImplementedException();
+        public IRepository<Entities.Task> Tasks
+        {
+            get
+            {
+                if (taskRepository == null)
+                    taskRepository = new TaskRepository(db);
+                return taskRepository;
+            }
+        }
 
-        public IRepository<PmTask> PmTasks => throw new NotImplementedException();
+        public IRepository<Team> Teams
+        {
+            get
+            {
+                if (teamRepository == null)
+                    teamRepository = new TeamRepository(db);
+                return teamRepository;
+            }
+        }
 
-        public IRepository<Team> Teams => throw new NotImplementedException();
-
-        public IRepository<User> Users => throw new NotImplementedException();
+        public IRepository<User> Users
+        {
+            get
+            {
+                if (userRepository == null)
+                    userRepository = new UserRepository(db);
+                return userRepository;
+            }
+        }
 
 
 

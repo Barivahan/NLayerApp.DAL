@@ -11,8 +11,8 @@ namespace NLayerApp.DAL.Entities
     {
         [Key]
         public int ProjectId { get; set; }
-        public int ManagerId { get; set; }
-        public Manager Manager { get; set; }
+        public int UserId { get; set; }
+        public User Manager { get; set; }
         public int TeamId { get; set; }
         public Team Team { get; set; }
     }
