@@ -9,7 +9,7 @@ namespace NLayerApp.DAL.EF
         
         public DbSet<Manager> Managers { get; set; }
         public DbSet<Project> Projects { get; set; }
-        public DbSet<PmTask> Tasks { get; set; }
+        public DbSet<Task> Tasks { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<User> Users { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
