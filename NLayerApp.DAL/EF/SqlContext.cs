@@ -6,7 +6,7 @@ namespace NLayerApp.DAL.EF
 {
     class SqlContext : DbContext
     {
-
+        public DbSet<Manager> Managers { get; set; }
         public DbSet<Project> Projects { get; set; }
         public DbSet<Task> Tasks { get; set; }
         public DbSet<Team> Teams { get; set; }

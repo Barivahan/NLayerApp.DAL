@@ -7,13 +7,18 @@ using System.Threading.Tasks;
 
 namespace NLayerApp.DAL.Entities
 {
-    public class Task
+    class Manager
     {
         [Key]
-        public int TaskId { get; set; }
+        public int ManagerId { get; set; }
+
         public int ProjectId { get; set; }
         public Project Project { get; set; }
         public string Name { get; set; }
-        public string Comment { get; set; }
+        [Required]
+        public string Email { get; set; }
+        [Required]
+        [MinLength(6)]
+        public string Password { get; set; }
     }
 }
